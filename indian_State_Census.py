@@ -9,6 +9,10 @@
 import csv
 
 
+class IndianCensusException(Exception):
+    pass
+
+
 class StateCensusAnalyser:
     @staticmethod
     def state_census_loader():
@@ -22,6 +26,14 @@ class StateCensusAnalyser:
         with open("StateCensusData.csv") as data:
             state_census = csv.reader(data)
             return len(list(state_census))
+
+    @staticmethod
+    def file_extension():
+        file = "StateCensusData.csv"
+        if file.endswith(".csv"):
+            return ".csv"
+        else:
+            raise IndianCensusException("File is Invalid")
 
 
 class CSVStates:
@@ -46,3 +58,4 @@ if __name__ == '__main__':
     print(StateCensusAnalyser.count_number_of_records())
     CSVStates.state_code_loader()
     print(CSVStates.count_number_of_records())
+    StateCensusAnalyser.file_extension()
