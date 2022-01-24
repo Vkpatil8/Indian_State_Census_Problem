@@ -28,12 +28,11 @@ class StateCensusAnalyser:
             return len(list(state_census))
 
     @staticmethod
-    def file_extension():
-        file = "StateCensusData.csv"
+    def file_extension(file):
         if file.endswith(".csv"):
             return ".csv"
         else:
-            raise IndianCensusException("File is Invalid")
+            raise TypeError("File is Invalid")
 
 
 class CSVStates:
