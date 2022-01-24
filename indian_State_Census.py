@@ -2,8 +2,8 @@
 @Author: Vishal Patil
 @Date: 23-01-2022 13:45:00
 @Last Modified by: Vishal Patil
-@Last Modified time: 24-01-2022 11:45:00
-@Title : Solving use case 1 test case 4
+@Last Modified time: 24-01-2022 14:25:00
+@Title : Solving use case 1 test case 5
 """
 
 import csv
@@ -56,10 +56,10 @@ class StateCensusAnalyser:
     def validate_header(csv_file):
         with open(csv_file, newline="") as file_data:
             dialect = csv.Sniffer().has_header(file_data.read())
-            if not dialect:
-                raise IndianCensusException("Heading is corrupted")
-            else:
+            if dialect:
                 return dialect
+            else:
+                raise IndianCensusException("Heading is corrupted")
 
 
 class CSVStates:
