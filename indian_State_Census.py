@@ -52,6 +52,15 @@ class StateCensusAnalyser:
             else:
                 return dialect.delimiter
 
+    @staticmethod
+    def validate_header(csv_file):
+        with open(csv_file, newline="") as file_data:
+            dialect = csv.Sniffer().has_header(file_data.read())
+            if not dialect:
+                raise IndianCensusException("Heading is corrupted")
+            else:
+                return dialect
+
 
 class CSVStates:
     @staticmethod
