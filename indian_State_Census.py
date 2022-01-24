@@ -2,8 +2,8 @@
 @Author: Vishal Patil
 @Date: 23-01-2022 13:45:00
 @Last Modified by: Vishal Patil
-@Last Modified time: 24-01-2022 11:00:00
-@Title : Solving use case 1 test case 3
+@Last Modified time: 24-01-2022 11:45:00
+@Title : Solving use case 1 test case 4
 """
 
 import csv
@@ -42,6 +42,15 @@ class StateCensusAnalyser:
             return ".csv"
         else:
             raise IndianCensusException("File is Invalid")
+
+    @staticmethod
+    def delimiter_validation(csv_file):
+        with open(csv_file, newline="") as file_data:
+            dialect = csv.Sniffer().sniff(file_data.read())
+            if not dialect.delimiter == ',':
+                raise IndianCensusException("Error occurred in delimiter matching")
+            else:
+                return dialect.delimiter
 
 
 class CSVStates:

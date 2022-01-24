@@ -1,5 +1,4 @@
 
-
 import indian_State_Census
 import unittest
 
@@ -28,3 +27,11 @@ class TestCases(unittest.TestCase):
         """
         result = indian_State_Census.StateCensusAnalyser.file_extension
         self.assertRaises(indian_State_Census.IndianCensusException, result, "abc.txt")
+
+    def test_match_delimiter(self):
+        """
+            desc: test the method to check delimiter
+        """
+        expected = ','
+        result = indian_State_Census.StateCensusAnalyser.delimiter_validation("StateCensusData.csv")
+        self.assertEqual(result, expected)
