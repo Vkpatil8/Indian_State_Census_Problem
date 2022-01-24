@@ -27,5 +27,4 @@ class TestCases(unittest.TestCase):
          desc: test the method to raise exception while checking file extension
         """
         result = indian_State_Census.StateCensusAnalyser.file_extension
-        expected = ".csv"
-        self.assertRaises(TypeError, result, "abc.txt")
+        self.assertRaises(indian_State_Census.IndianCensusException, result, "abc.txt")
