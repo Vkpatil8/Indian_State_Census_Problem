@@ -1,5 +1,6 @@
-import indian_State_Census
 import unittest
+
+from indian_State_Census import *
 
 
 class TestCases1(unittest.TestCase):
@@ -8,54 +9,58 @@ class TestCases1(unittest.TestCase):
         """
             desc: test the method to count number of records in file
         """
-        result = indian_State_Census.StateCensusAnalyser.count_number_of_records()
-        expected = 30
-        self.assertEqual(expected, result)
+        expected1 = 30
+        expected2 = 38
+        self.assertEqual(StateCensusData.count_number_of_records("StateCensusData.csv"), expected1)
+        self.assertEqual(StateCensusData.count_number_of_records("StateCode.csv"), expected2)
 
     def test_check_file_extension(self):
         """
             desc: test the method to check file extension
         """
-        result = indian_State_Census.StateCensusAnalyser.file_extension("StateCensusData.csv")
         expected = ".csv"
-        self.assertEqual(result, expected)
+        self.assertEqual(StateCensusData.file_extension("StateCensusData.csv"), expected)
+        self.assertEqual(StateCensusData.file_extension("StateCode.csv"), expected)
 
     def test_check_file_extension_false(self):
         """
          desc: test the method to raise exception while checking file extension
         """
-        method = indian_State_Census.StateCensusAnalyser.file_extension
-        self.assertRaises(indian_State_Census.IndianCensusException, method, "abc.txt")
+        method = StateCensusData.file_extension
+        self.assertRaises(IndianCensusException, method, "StateCensusData.txt")
+        self.assertRaises(IndianCensusException, method, "StateCode.txt")
 
     def test_match_delimiter(self):
         """
             desc: test the method to check delimiter
         """
         expected = ','
-        result = indian_State_Census.StateCensusAnalyser.delimiter_validation("StateCensusData.csv")
-        self.assertEqual(result, expected)
+        self.assertEqual(StateCensusData.delimiter_validation("StateCensusData.csv"), expected)
+        self.assertEqual(StateCensusData.delimiter_validation("StateCode.csv"), expected)
 
     def test_not_match_delimiter(self):
         """
             desc: test the method to raise exception while checking delimiter
         """
-        method = indian_State_Census.StateCensusAnalyser.delimiter_validation
-        self.assertRaises(indian_State_Census.IndianCensusException, method, "StateCensusData.txt")
+        method = StateCensusData.delimiter_validation
+        self.assertRaises(IndianCensusException, method, "StateCensusData.txt")
+        self.assertRaises(IndianCensusException, method, "StateCode.txt")
 
     def test_match_header(self):
         """
             desc: test the method to check header
         """
         expected = True
-        result = indian_State_Census.StateCensusAnalyser.validate_header("StateCensusData.csv")
-        self.assertEqual(result, expected)
+        self.assertEqual(StateCensusData.validate_header("StateCensusData.csv"), expected)
+        self.assertEqual(StateCensusData.validate_header("StateCode.csv"), expected)
 
     def test_not_match_header(self):
         """
             desc: test the method to raise exception while checking headers
         """
-        method = indian_State_Census.StateCensusAnalyser.validate_header
-        self.assertRaises(indian_State_Census.IndianCensusException, method, "StateCensusData1.csv")
+        method = StateCensusData.validate_header
+        self.assertRaises(IndianCensusException, method, "StateCensusData1.csv")
+        self.assertRaises(IndianCensusException, method, "StateCode1.csv")
 
 
 if __name__ == '__main__':

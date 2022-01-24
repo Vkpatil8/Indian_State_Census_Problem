@@ -2,8 +2,8 @@
 @Author: Vishal Patil
 @Date: 23-01-2022 13:45:00
 @Last Modified by: Vishal Patil
-@Last Modified time: 24-01-2022 18:00:00
-@Title : Solving use case 2 & all use cases
+@Last Modified time: 24-01-2022 19:00:00
+@Title : Solving use refactor 1
 """
 
 import csv
@@ -13,23 +13,23 @@ class IndianCensusException(Exception):
     pass
 
 
-class StateCensusAnalyser:
+class StateCensusData:
     @staticmethod
-    def state_census_loader():
+    def data_loader(file):
         """
             desc: method to load records in file
         """
-        with open("StateCensusData.csv") as data:
+        with open(file) as data:
             state_census = csv.reader(data)
             for info in state_census:
                 print(info)
 
     @staticmethod
-    def count_number_of_records():
+    def count_number_of_records(file):
         """
             desc: method to count number of records in file
         """
-        with open("StateCensusData.csv") as data:
+        with open(file) as data:
             state_census = csv.reader(data)
             return len(list(state_census))
 
@@ -67,9 +67,21 @@ class StateCensusAnalyser:
             else:
                 raise IndianCensusException("Heading is corrupted")
 
+    @staticmethod
+    def state_code_loader():
+        """
+            desc: method to load records in file
+        """
+        with open("StateCode.csv", "r") as data:
+            state_code = csv.reader(data)
+            for info in state_code:
+                print(info)
+
 
 if __name__ == '__main__':
     file_name = "StateCensusData.csv"
     file_name1 = "StateCode.csv"
-    StateCensusAnalyser.state_census_loader()
-    print(StateCensusAnalyser.count_number_of_records())
+    StateCensusData.data_loader(file_name)
+    print(StateCensusData.count_number_of_records(file_name))
+    StateCensusData.data_loader(file_name1)
+    print(StateCensusData.count_number_of_records(file_name1))
