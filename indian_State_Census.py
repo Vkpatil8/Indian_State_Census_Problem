@@ -2,7 +2,7 @@
 @Author: Vishal Patil
 @Date: 23-01-2022 13:45:00
 @Last Modified by: Vishal Patil
-@Last Modified time: 23-01-2022 22:00:00
+@Last Modified time: 24-01-2022 11:00:00
 @Title : Solving use case 1 test case 3
 """
 
@@ -16,6 +16,9 @@ class IndianCensusException(Exception):
 class StateCensusAnalyser:
     @staticmethod
     def state_census_loader():
+        """
+            desc:    method to count number of records in file
+        """
         with open("StateCensusData.csv") as data:
             state_census = csv.reader(data)
             for info in state_census:
@@ -23,13 +26,18 @@ class StateCensusAnalyser:
 
     @staticmethod
     def count_number_of_records():
+        """
+            desc: method to check file extension
+        """
         with open("StateCensusData.csv") as data:
             state_census = csv.reader(data)
             return len(list(state_census))
 
     @staticmethod
-    def file_extension():
-        file = "StateCensusData.csv"
+    def file_extension(file):
+        """
+         desc: method to raise exception while checking file extension
+        """
         if file.endswith(".csv"):
             return ".csv"
         else:
@@ -58,4 +66,3 @@ if __name__ == '__main__':
     print(StateCensusAnalyser.count_number_of_records())
     CSVStates.state_code_loader()
     print(CSVStates.count_number_of_records())
-    StateCensusAnalyser.file_extension()
