@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1e5f610a-8ad3-440d-8090-43c2b0e8ef48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StateCensusData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensusData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StateCensusData1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensusData1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/indian_State_Census.py" beforeDir="false" afterPath="$PROJECT_DIR$/indian_State_Census.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +69,11 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python tests.Python tests for test.TestCases.test_check_file_extension" />
+      <item itemvalue="Python tests.Python tests for test.TestCases.test_check_file_extension_false" />
+      <item itemvalue="Python tests.Python tests for test.TestCases" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test.TestCases.test_check_file_extension_false" />
