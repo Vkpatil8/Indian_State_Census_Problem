@@ -3,7 +3,7 @@
 @Date: 23-01-2022 13:45:00
 @Last Modified by: Vishal Patil
 @Last Modified time: 24-01-2022 19:00:00
-@Title : Solving use refactor 1
+@Title : Solving refactor 1
 """
 
 import csv
@@ -66,16 +66,6 @@ class StateCensusData:
                 return dialect
             else:
                 raise IndianCensusException("Heading is corrupted")
-
-    @staticmethod
-    def state_code_loader():
-        """
-            desc: method to load records in file
-        """
-        with open("StateCode.csv", "r") as data:
-            state_code = csv.reader(data)
-            for info in state_code:
-                print(info)
 
 
 if __name__ == '__main__':

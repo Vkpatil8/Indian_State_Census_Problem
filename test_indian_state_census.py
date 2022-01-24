@@ -1,5 +1,4 @@
 import unittest
-
 from indian_State_Census import *
 
 
