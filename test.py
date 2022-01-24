@@ -18,11 +18,7 @@ class TestCases(unittest.TestCase):
         """
             desc: test the method to check file extension
         """
-<<<<<<< HEAD
-        result = indian_State_Census.StateCensusAnalyser.file_extension()
-=======
         result = indian_State_Census.StateCensusAnalyser.file_extension("StateCensusData.csv")
->>>>>>> testcase1.3
         expected = ".csv"
         self.assertEqual(result, expected)
 
