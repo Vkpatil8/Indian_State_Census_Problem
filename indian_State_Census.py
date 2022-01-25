@@ -2,8 +2,8 @@
 @Author: Vishal Patil
 @Date: 23-01-2022 13:45:00
 @Last Modified by: Vishal Patil
-@Last Modified time: 24-01-2022 19:00:00
-@Title : Solving refactor 1
+@Last Modified time: 25-01-2022 12:20:00
+@Title : Solving refactor 1 & test cases
 """
 
 import csv
@@ -14,6 +14,7 @@ class IndianCensusException(Exception):
 
 
 class StateCensusData:
+
     @staticmethod
     def data_loader(file):
         """
@@ -67,6 +68,27 @@ class StateCensusData:
             else:
                 raise IndianCensusException("Heading is corrupted")
 
+    @staticmethod
+    def state_census_data_list(file, file1):
+        """
+            desc: method to create new csv file to store all data
+        """
+        file_0 = open(file, "r")
+        csv_reader0 = csv.reader(file_0)
+        file_1 = open(file1, "r")
+        csv_reader1 = csv.reader(file_1)
+
+        with open("new_file.csv", "w") as a:
+            csv_writer = csv.writer(a)
+            for data in csv_reader0:
+                csv_writer.writerow(data)
+
+            for data1 in csv_reader1:
+                csv_writer.writerow(data1)
+        with open("new_file.csv", "r") as b:
+            csv_reader = csv.reader(b)
+            return len(list(csv_reader))
+
 
 if __name__ == '__main__':
     file_name = "StateCensusData.csv"
@@ -75,3 +97,4 @@ if __name__ == '__main__':
     print(StateCensusData.count_number_of_records(file_name))
     StateCensusData.data_loader(file_name1)
     print(StateCensusData.count_number_of_records(file_name1))
+    print(StateCensusData.state_census_data_list(file_name, file_name1))

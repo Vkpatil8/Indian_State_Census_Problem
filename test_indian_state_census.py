@@ -61,6 +61,13 @@ class TestCases1(unittest.TestCase):
         self.assertRaises(IndianCensusException, method, "StateCensusData1.csv")
         self.assertRaises(IndianCensusException, method, "StateCode1.csv")
 
+    def test_count_number_of_data(self):
+        """
+            desc: test the method to count number of records in list
+        """
+        expected = 136
+        self.assertEqual(StateCensusData.state_census_data_list("StateCensusData.csv", "StateCode.csv"), expected)
+
 
 if __name__ == '__main__':
     unittest.main()
